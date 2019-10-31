@@ -1,0 +1,17 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10HW171403/majiang community?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    password:
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.example.demo.entity
+  show-sql: true
+logging:
+  level:
+    root: info
+    com.example.demo: debug
+  file: log/deno.log
+
