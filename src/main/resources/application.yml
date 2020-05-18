@@ -1,10 +1,13 @@
+server:
+  port: 8083
 spring:
   thymeleaf:
     mode: HTML
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10HW171403/majiang community?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
-    password:
+    url: jdbc:mysql://10HW173561:3306/t_majiang_community?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.example.demo.entity
