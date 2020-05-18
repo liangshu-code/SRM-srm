@@ -12,3 +12,36 @@
 2020-05-18 10:40:39.712  WARN 10976 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
 2020-05-18 10:40:40.102  INFO 10976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
 2020-05-18 10:40:40.102  INFO 10976 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 6.045 seconds (JVM running for 7.93)
+2020-05-18 15:05:59.645  INFO 13092 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on 10HW171705 with PID 13092 (C:\Users\1744196\IdeaProjects\target\classes started by 1744196 in C:\Users\1744196\IdeaProjects)
+2020-05-18 15:05:59.661 DEBUG 13092 --- [main] com.example.demo.DemoApplication         : Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2020-05-18 15:05:59.661  INFO 13092 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-05-18 15:06:00.832  WARN 13092 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.demo.dao]' package. Please check your configuration.
+2020-05-18 15:06:01.067  WARN 13092 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.demo]' package. Please check your configuration.
+2020-05-18 15:06:02.363  INFO 13092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2020-05-18 15:06:02.410  INFO 13092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-18 15:06:02.410  INFO 13092 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-05-18 15:06:02.613  INFO 13092 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-18 15:06:02.613  INFO 13092 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2827 ms
+2020-05-18 15:06:02.769  WARN 13092 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'achieveController': Unsatisfied dependency expressed through field 'achieveService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.example.demo.service.AchieveService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-05-18 15:06:02.769  INFO 13092 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-18 15:06:02.848  INFO 13092 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-05-18 15:06:03.035 ERROR 13092 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field achieveService in com.example.demo.controller.AchieveController required a bean of type 'com.example.demo.service.AchieveService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.example.demo.service.AchieveService' in your configuration.
+

@@ -1,4 +1,4 @@
 package com.example.demo.mapper;
 
-public interface GradeMapper {
+public interface SupplierMapper {
 }
