@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+	<!-- 全局js -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>	
+	<!-- 记住密码js -->
+	<script src="/js/jquery-cookie.js"></script>
+	<script src="/js/jquery.base64.js"></script>
+	<!-- 自定义js -->
+	<script src="/js/content.js?v=1.0.0"></script>
+	<script src="/js/validate.js"></script>
+	<script type="text/javascript" src="/js/cookie.js"></script>
+	<!-- jQuery Validation -->
+	<script src="/js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="/js/plugins/validate/messages_zh.min.js"></script>
+	<script src="/js/plugins/layer/layer.min.js"></script>
+	<!-- 滑动拼图 -->
+	<!-- script src="/js/jigsaw.js"></script -->
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/jigsaw.css" type="text/css">
+	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="/css/style.css" rel="stylesheet" type="text/css" />
+	
+<title>Login</title>
+</head>
+  
+<style>
+ 	.container {
+      width: 95%;
+      margin: 30px 5px 15px;
+    }
+   
+    #msg {
+      width: 100%;
+      line-height: 40px;
+      font-size: 14px;
+      text-align: center;
+    }
+    
+   
+     a:link,a:visited,a:hover,a:active {
+      margin-left: 0px;
+      color: #0366D6;
+    }
+	.word{
+		color:white;
+		
+		text-align:center;
+		margin-top:25%;
+		font-family: Arial;
+	}
+	.btn-block1{
+		display:block;
+		width:15%;
+		margin:0 auto;
+		margin-top:5%;
+		color:black;
+		background-color:#fff;
+		border-color:#ffffff;
+		border-radius:5px;
+	}
+    .banquan_footer{
+        height: 45px;
+        line-height: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      
+        color: #fff;
+        font-family: Arial;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-top:500px;
+        
+    }
+     body{
+        
+        background:url("/img/background_login.jpg");
+        height:auto;
+        
+        
+    }
+	label.error{
+	   margin-left: 15%;
+	   margin-top:1%
+	
+	}
+	a:visited {
+		color:#FFFFFF;
+		text-decoration:none;
+	}
+	.myModal-header{
+    padding:6px 10px 6px 20px;
+    background-color:#007DCF;
+    border:0px;
+    height:30px;
+	}
+	 
+	.myModal-body{
+	    padding:30px 40px 30px 40px;
+	    background-color:#1E253F;
+	    border-left:1px solid #007DCF;
+	    border-right:1px solid #007DCF;
+	}
+	 
+	
+	
+	.myModal-input{
+	    background-color:#1E253F;
+	    border:1px solid #007DCF
+	}
+	 
+
+</style>
+<body>
+<div>
+   
+	<div style="background-color:white;">
+	    <img alt="ding" src="/img/pic-nav-Colorful strip.png" style="display:block;padding:0;">
+	</div>
+	 
+	<!-- 主体 -->
+	<div class="word">
+	   <h1>知识就是力量</h1>
+	   <h4 style="margin-top:2%;">努力才有机会</h4>
+	</div>
+   
+    <button class="btn btn-primary btn-lg btn-block1" data-toggle="modal" data-target="#myModal" value="立即登录">立即登录</button>
+    
+    <!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	    <div class="modal-dialog"style="width:39%;margin-top:10%;">
+	        <div class="modal-content" style="border-radius:15px;">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">登录账号</h4>
+	            </div>
+	            <div class="modal-body">
+	            
+	            <form id="signupForm">
+	                    
+	                    <!-- 登录 -->
+	                    <div style="margin-top:10%;height:20px;">
+	                   		 <span style="float:left;margin-top:2%;">用户名：</span>
+	                         <input style="width:85%;float:left;border-radius:5px;" type="text" id="username" name="username" class="form-control uname" placeholder="用户名" /><br/>
+	                    </div>
+	                    
+	                    <div style="padding-top:9%;">
+	                        <span style="float:left;margin-top:2%;" > 密码&nbsp;：&nbsp;&nbsp;</span> 
+	                        <input type="password" id="password" name="password" style="width:85%;border-radius:5px;" class="form-control pword m-b" placeholder="密码" /> 
+	                    </div>
+	                  
+	                    <button class="btn btn-success btn-block"style="margin-top:3%" >登录</button>
+	                    
+	                </form>
+	            
+	            
+	            </div>
+	           
+	        </div><!-- /.modal-content -->
+	    </div><!-- /.modal -->
+	</div>
+	    
+ <!--  -->
+    <!-- 版权 -->
+    <div class="banquan_footer">
+        <a href="#" style="text-decoration:underline;margin-top:10px;">用户协议</a>|<a href="#" style="text-decoration:underline;">隐私条款</a>
+        <p style="height:10px">Copyright©2019 Charles</p>
+        <img alt="底部" src="/img/pic-bottom--Colorful strip.png" style="height:50%;width:100%">
+    </div>
+  </div>  
+</body>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	   // $("#login").on('click',function(){$("#signupForm").submit();});
+	    validateRule();
+	    $("body").keydown(keyDownLogon);
+
+	});
+
+	function keyDownLogon(){
+	    if (event.keyCode == "13") {
+	        $("#login").trigger('click');
+	    }
+	}
+
+	$.validator.setDefaults({
+	    //表单验证成功后执行
+	    submitHandler : function() {
+	        login();
+	    }
+	});
+
+
+function login() {
+	var userName = $('#username').value;    		        
+    var userPass = $('#password').value;    		        
+    //判断是否选中复选框，如果选中，添加cookie  
+    if($("#remember_me").prop("checked") == true){    
+        //添加cookie，调用cookie.js中方法  
+        setCookie();    
+        //alert("记住密码登录");       
+    }
+   // if($("#msg").html() == "验证成功！"){    	
+    	if($("#agree").prop("checked") == false){
+    		alert("请勾选【我已阅读并同意《协议》】");
+    	}else{
+    		$.ajax({
+    			type : "POST",
+    			url : "/login",
+    			data : $('#signupForm').serialize(),
+    			success : function(r) {
+    				if (r.code == 0) {
+    					parent.location.href = '/index';
+    				} else {
+    					layer.msg(r.msg);
+    				}
+    			}
+    		});
+    	}		
+}
+   
+
+function validateRule() {
+     var icon = "<i class='fa fa-times-circle'></i> ";
+     $("#signupForm").validate({
+         rules: {
+             username: {
+                 required: true
+             },
+             password: {
+                 required: true
+             }
+         },
+         messages: {
+             username: {
+                 required: icon + "请输入您的用户名",
+             },
+             password: {
+                 required: icon + "请输入您的密码",
+             }
+         }
+     })
+ }
+
+</script>
+  
+</html>

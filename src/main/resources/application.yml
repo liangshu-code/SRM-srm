@@ -1,20 +1,75 @@
+#开发环境配置
 server:
-  port: 8083
-spring:
-  thymeleaf:
-    mode: HTML
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10HW173561:3306/t_majiang_community?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
-    username: root
-    password: 123456
+  #端口
+  port: 8081
+  tomcat:
+    uri-encoding: utf-8
+
+#mybatis配置
 mybatis:
-  mapper-locations: classpath:mapping/*Mapper.xml
-  type-aliases-package: com.example.demo.entity
-  show-sql: true
+  configuration:
+    map-underscore-to-camel-case: true
+#  mapper-locations: classpath:/mapper/*Mapper.xml
+#  type-aliases-package: com.hrrecruit.entity
+
+#数据库配置
+spring:
+  datasource:
+    url: jdbc:mysql://10.103.17.2:3306/srm?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    # 初始化大小，最小，最大
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #useGlobalDataSourceStat: true
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    #  cache:
+    #    type: ehcache
+    #    ehcache:
+    #      name: userCache #缓存名称
+    #      eternal: false #是否永不过期 默认false 如果为false那么还要根据timeToIdleSeconds，timeToLiveSeconds判断。
+    #      max-elements-in-memory: 100 #cache 中最多可以存放的元素的数量 默认值100
+    #      time-to-idle-seconds: 0 #对象空闲时间，指对象在多长时间没有被访问就会失效。只对eternal为false的有效。默认值0，表示一直可以访问。以秒为单位。
+    #      time-to-live-seconds: 0 #对象存活时间，指对象从创建到失效所需要的时间。只对eternal为false的有效。默认值0，表示一直可以访问。以秒为单位。
+    #      overflow-to-disk: true #如果内存中数据超过内存限制，是否要缓存到磁盘上。默认false
+    #      disk-persistent: false #否在磁盘上持久化。指重启jvm后，数据是否有效。默认为false。
+    #      max-elements-on-disk: 100 #在磁盘上缓存的element的最大数目，默认值为0，表示不限制。
+    #      disk-spool-buffer-size-mB: 30 #DiskStore使用的磁盘大小，默认值30MB。每个cache使用各自的DiskStore。
+    #      disk-expiry-thread-interval-seconds: 120 #对象检测线程运行时间间隔。标识对象状态的线程多长时间运行一次。以秒为单位。默认120 秒
+
 logging:
   level:
     root: info
-    com.example.demo: debug
-  file: log/deno.log
+    org.mybatis: info
+    com.ilp3: debug
+  file: log/ilp_test.log
+
+
 

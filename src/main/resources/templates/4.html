@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>4</title>
+    <!-- 引入 echarts.js -->
+    <script src="../js/echarts.min.js"></script>
+<!--    <script src="../js/jquery.min.js"></script>-->
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    option = {
+        title : {
+            text: 'Tools Data Comparison',
+            x:'center',
+            textStyle: {
+                color: '#44546A'
+            },
+        },
+        legend: {bottom: 'bottom',},
+        tooltip: {},
+        dataset: {
+            source: [
+                ['WK23', 5622, 4724, 4697,15.97, 0.57],
+                ['WK24', 4581, 3646, 3685,20.41, 1.67],
+                ['WK25', 4177, 3608, 3605,13.62, 0.00],
+                ['WK26', 4242, 2847, 2847,32.89, 0.00]
+            ]
+        },
+        xAxis: {type: 'category'},
+        yAxis: [
+            {
+                boundaryGap : [ 0, 0.2],
+                axisLine: {
+                    show: false
+                }
+            },
+            {
+
+                axisLine: {
+                    show: false,
+                },
+                axisLabel: {
+                    formatter: '{value} %',
+                }
+            }
+
+        ],
+
+        // Declare several bar series, each will be mapped
+        // to a column of dataset.source by default.
+        series: [
+            {
+                name: 'Zabbix Alert',
+                type: 'bar',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        color: 'black',
+                    }
+                },
+            },
+            {
+                name: 'Pagerduty Incident',
+                type: 'bar',
+                label: {
+                    normal: {
+                        show: true,
+                        color: 'black',
+                        position: 'top'
+                    }
+                },
+            },
+            {
+                name: 'Remedy Ticket',
+                type: 'bar',
+                label: {
+                    normal: {
+                        show: true,
+                        color: 'black',
+                        position: 'top'
+                    }
+                },
+            },
+            {
+                name: 'Gap rate(Zabbix & pagerduty)',
+                type: 'line',
+                symbol: 'circle',
+                yAxisIndex: 1,
+                symbolSize: 7,
+                lineStyle: {
+                    width: 3
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        color: 'black',
+                        position: 'ringht',
+                        formatter: '{b} %',
+                        padding: [0,10]
+                    }
+                },
+            },
+            {
+                name: 'Gap rate(pagerduty & remedy)',
+                type: 'line',
+                symbol: 'circle',
+                yAxisIndex: 1,
+                symbolSize: 7,
+                lineStyle: {
+                    width: 3
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        color: 'black',
+                        position: 'ringht',
+                        formatter: '{b} %',
+                        padding: [0,10],
+                    }
+                },
+            },
+        ],
+        color: ['#559bdb','#f4843e', '#a7a7a7','#f5c000', '#4172CA']
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+</script>
+</body>
+</html>
