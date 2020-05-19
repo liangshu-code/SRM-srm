@@ -17,7 +17,7 @@
 //    SupplierService supplierService;
 //    @GetMapping("/supplier")
 //    String supplier(Model model){
-//        return "Supplier/Supplier.html";
+//        return "Supplier/supplier.html";
 //    }
 //    @ResponseBody
 //    @RequestMapping("/supplierLIst")

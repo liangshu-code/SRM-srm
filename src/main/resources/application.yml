@@ -15,7 +15,7 @@ mybatis:
 #数据库配置
 spring:
   datasource:
-    url: jdbc:mysql://10.103.17.2:3306/srm?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://10.103.17.2:3306/xbsrm?useUnicode=true&characterEncoding=utf8
     username: root
     password: root
     # 使用druid数据源
