@@ -18,9 +18,8 @@ public class SupplierDo {
     private String dateEtablishment;
     private String organizationCode;
     private String staffSize;
-    private String contacTid;
+    private String contactId;
     private String staus;
-
     public int getSupplierId() {
         return supplierId;
     }
@@ -141,12 +140,12 @@ public class SupplierDo {
         this.staffSize = staffSize;
     }
 
-    public String getContacTid() {
-        return contacTid;
+    public String getContactId() {
+        return contactId;
     }
 
-    public void setContacTid(String contacTid) {
-        this.contacTid = contacTid;
+    public void setContactId(String contactId) {
+        this.contactId = contactId;
     }
 
     public String getStaus() {
