@@ -3,31 +3,31 @@ package com.ilp3.system.entity;
 import java.util.Date;
 
 public class Achievements {
-    private int achievements_id;
-    private int supplier_id;
+    private int achievementsId;
+    private int supplierId;
     private int quality;
     private int deliver;
-    private int payment_method;
+    private int paymentMethod;
     private int complaint;
     private int service;
-    private int user_id_create;
-    private Date gmt_create;
-    private Date gmt_modified;
+    private int userIdCreate;
+    private Date gmtCreate;
+    private Date gmtModified;
 
-    public int getAchievements_id() {
-        return achievements_id;
+    public int getAchievementsId() {
+        return achievementsId;
     }
 
-    public void setAchievements_id(int achievements_id) {
-        this.achievements_id = achievements_id;
+    public void setAchievementsId(int achievementsId) {
+        this.achievementsId = achievementsId;
     }
 
-    public int getSupplier_id() {
-        return supplier_id;
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public void setSupplier_id(int supplier_id) {
-        this.supplier_id = supplier_id;
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
     public int getQuality() {
@@ -46,12 +46,12 @@ public class Achievements {
         this.deliver = deliver;
     }
 
-    public int getPayment_method() {
-        return payment_method;
+    public int getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setPayment_method(int payment_method) {
-        this.payment_method = payment_method;
+    public void setPaymentMethod(int paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public int getComplaint() {
@@ -70,27 +70,27 @@ public class Achievements {
         this.service = service;
     }
 
-    public int getUser_id_create() {
-        return user_id_create;
+    public int getUserIdCreate() {
+        return userIdCreate;
     }
 
-    public void setUser_id_create(int user_id_create) {
-        this.user_id_create = user_id_create;
+    public void setUserIdCreate(int userIdCreate) {
+        this.userIdCreate = userIdCreate;
     }
 
-    public Date getGmt_create() {
-        return gmt_create;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setGmt_create(Date gmt_create) {
-        this.gmt_create = gmt_create;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public Date getGmt_modified() {
-        return gmt_modified;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setGmt_modified(Date gmt_modified) {
-        this.gmt_modified = gmt_modified;
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 }

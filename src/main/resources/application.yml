@@ -20,7 +20,7 @@ spring:
     password: root
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     # 初始化大小，最小，最大
     initialSize: 1
     minIdle: 3

@@ -3,37 +3,46 @@ package com.ilp3.system.entity;
 
 
 public class SupplierDo {
-    private String name_cn;
-    private String name_en;
+    private int supplierId;
+    private String nameCn;
+    private String nameEn;
     private String abbreviation;
     private String code;
     private String nature;
     private String property;
-    private String mailing_address;
-    private String post_code;
-    private String company_website;
-    private String business_registration;
-    private String registered_capital;
-    private String date_establishment;
-    private String organization_code;
-    private String staff_size;
-    private String contact_id;
+    private String mailingAddress;
+    private String postCode;
+    private String companyWebsite;
+    private String businessRegistration;
+    private String registeredCapital;
+    private String dateEtablishment;
+    private String organizationCode;
+    private String staffSize;
+    private String contacTid;
     private String staus;
 
-    public String getName_cn() {
-        return name_cn;
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public void setName_cn(String name_cn) {
-        this.name_cn = name_cn;
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
-    public String getName_en() {
-        return name_en;
+    public String getNameCn() {
+        return nameCn;
     }
 
-    public void setName_en(String name_en) {
-        this.name_en = name_en;
+    public void setNameCn(String nameCn) {
+        this.nameCn = nameCn;
+    }
+
+    public String getNameEn() {
+        return nameEn;
+    }
+
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
     public String getAbbreviation() {
@@ -68,76 +77,76 @@ public class SupplierDo {
         this.property = property;
     }
 
-    public String getMailing_address() {
-        return mailing_address;
+    public String getMailingAddress() {
+        return mailingAddress;
     }
 
-    public void setMailing_address(String mailing_address) {
-        this.mailing_address = mailing_address;
+    public void setMailingAddress(String mailingAddress) {
+        this.mailingAddress = mailingAddress;
     }
 
-    public String getPost_code() {
-        return post_code;
+    public String getPostCode() {
+        return postCode;
     }
 
-    public void setPost_code(String post_code) {
-        this.post_code = post_code;
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
-    public String getCompany_website() {
-        return company_website;
+    public String getCompanyWebsite() {
+        return companyWebsite;
     }
 
-    public void setCompany_website(String company_website) {
-        this.company_website = company_website;
+    public void setCompanyWebsite(String companyWebsite) {
+        this.companyWebsite = companyWebsite;
     }
 
-    public String getBusiness_registration() {
-        return business_registration;
+    public String getBusinessRegistration() {
+        return businessRegistration;
     }
 
-    public void setBusiness_registration(String business_registration) {
-        this.business_registration = business_registration;
+    public void setBusinessRegistration(String businessRegistration) {
+        this.businessRegistration = businessRegistration;
     }
 
-    public String getRegistered_capital() {
-        return registered_capital;
+    public String getRegisteredCapital() {
+        return registeredCapital;
     }
 
-    public void setRegistered_capital(String registered_capital) {
-        this.registered_capital = registered_capital;
+    public void setRegisteredCapital(String registeredCapital) {
+        this.registeredCapital = registeredCapital;
     }
 
-    public String getDate_establishment() {
-        return date_establishment;
+    public String getDateEtablishment() {
+        return dateEtablishment;
     }
 
-    public void setDate_establishment(String date_establishment) {
-        this.date_establishment = date_establishment;
+    public void setDateEtablishment(String dateEtablishment) {
+        this.dateEtablishment = dateEtablishment;
     }
 
-    public String getOrganization_code() {
-        return organization_code;
+    public String getOrganizationCode() {
+        return organizationCode;
     }
 
-    public void setOrganization_code(String organization_code) {
-        this.organization_code = organization_code;
+    public void setOrganizationCode(String organizationCode) {
+        this.organizationCode = organizationCode;
     }
 
-    public String getStaff_size() {
-        return staff_size;
+    public String getStaffSize() {
+        return staffSize;
     }
 
-    public void setStaff_size(String staff_size) {
-        this.staff_size = staff_size;
+    public void setStaffSize(String staffSize) {
+        this.staffSize = staffSize;
     }
 
-    public String getContact_id() {
-        return contact_id;
+    public String getContacTid() {
+        return contacTid;
     }
 
-    public void setContact_id(String contact_id) {
-        this.contact_id = contact_id;
+    public void setContacTid(String contacTid) {
+        this.contacTid = contacTid;
     }
 
     public String getStaus() {
