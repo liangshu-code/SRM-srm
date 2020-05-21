@@ -15,11 +15,12 @@ public class SupplierDo {
     private String companyWebsite;
     private String businessRegistration;
     private String registeredCapital;
-    private String dateEtablishment;
+    private String dateEstablishment;
     private String organizationCode;
     private String staffSize;
     private String contactId;
     private String staus;
+
     public int getSupplierId() {
         return supplierId;
     }
@@ -116,12 +117,12 @@ public class SupplierDo {
         this.registeredCapital = registeredCapital;
     }
 
-    public String getDateEtablishment() {
-        return dateEtablishment;
+    public String getDateEstablishment() {
+        return dateEstablishment;
     }
 
-    public void setDateEtablishment(String dateEtablishment) {
-        this.dateEtablishment = dateEtablishment;
+    public void setDateEstablishment(String dateEstablishment) {
+        this.dateEstablishment = dateEstablishment;
     }
 
     public String getOrganizationCode() {

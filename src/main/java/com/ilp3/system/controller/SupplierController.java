@@ -2,6 +2,7 @@ package com.ilp3.system.controller;
 
 import com.ilp3.common.utils.PageUtils;
 import com.ilp3.common.utils.Query;
+import com.ilp3.common.utils.R;
 import com.ilp3.system.entity.SupplierDo;
 import com.ilp3.system.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,7 @@ import java.util.Map;
 public class SupplierController {
     @Autowired
     SupplierService supplierService;
-    @GetMapping("/supplieradd")
-    String supplieradd(Model model){
-        return "srm/supplier/add.html";
-    }
-    @GetMapping("/supplier")
+    @GetMapping("/srm/supplier")
     String supplier(Model model){
         return "srm/supplier/supplier.html";
     }
@@ -42,6 +39,25 @@ public class SupplierController {
         List<SupplierDo> list = supplierService.AllList(id);
         return  list;
     }
-
+    @GetMapping("/supaddhtml")
+    String add(Model model) {
+        return "srm/supplier/add";
+    }
+    @ResponseBody
+    @RequestMapping("/supadd")
+    R test3(SupplierDo supplierDo){
+        if (supplierService.supadd(supplierDo) > 0) {
+            return R.ok();
+        }
+     return R.error();
+    }
+    @ResponseBody
+    @RequestMapping("/remove")
+    R test4(long id){
+        if (supplierService.remove(id) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
 
 }

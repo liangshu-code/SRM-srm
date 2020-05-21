@@ -30,4 +30,15 @@ public class SupplierServiceImpl implements SupplierService {
         return supplierMapper.Alllist(id);
     }
 
+    @Override
+    public int supadd(SupplierDo supplierDo) {
+        return   supplierMapper.add(supplierDo);
+
+    }
+
+    @Override
+    public int remove(Long id) {
+        return supplierMapper.remove(id);
+    }
+
 }

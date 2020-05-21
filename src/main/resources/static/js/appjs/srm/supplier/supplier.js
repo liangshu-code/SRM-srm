@@ -50,11 +50,11 @@ function load() {
                                 title : '序号' // 列标题
                                 },
 								{
-									field : 'name_cn', // 列字段名
+									field : 'nameCn', // 列字段名
 									title : '公司名称' // 列标题
 								},
 								{
-									field : 'name_en',
+									field : 'nameEn',
 									title : '英文名称'
 								},
 								{
@@ -74,73 +74,73 @@ function load() {
                                    title : '企业性质'
                                 },
                                 {
-                                   field : 'mailing_address',
+                                   field : 'mailingAddress',
                                    title : '通讯地址'
                                 },
                                 {
-                                  field : 'post_code',
+                                  field : 'postCode',
                                   title : '邮政编码'
                                 },
                                  {
-                                  field : 'company_website',
+                                  field : 'companyWebsite',
                                   title : '公司网址'
                                  },
 
-//								{
-//									title : '操作',
-//									field : 'id',
-//									align : 'center',
-//									formatter : function(value, row, index) {
-//										var e = '<a  class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-//												+ row.supplier_id
-//												+ '\')"><i class="fa fa-edit "></i></a> ';
-//										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
-//												+ row.supplier_id
-//												+ '\')"><i class="fa fa-remove"></i></a> ';
+								{
+									title : '操作',
+									field : 'id',
+									align : 'center',
+									formatter : function(value, row, index) {
+										var e = '<a  class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
+												+ row.supplierId
+												+ '\')"><i class="fa fa-edit "></i></a> ';
+										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
+												+ row.supplierId
+												+ '\')"><i class="fa fa-remove"></i></a> ';
 //										var f = '<a class="btn btn-success btn-sm '+s_resetPwd_h+'" href="#" title="重置密码"  mce_href="#" onclick="resetPwd(\''
-//												+ row.supplier_id
+//												+ row.supplierId
 //												+ '\')"><i class="fa fa-key"></i></a> ';
-//										return e + d + f;
-//									}
-//								}
+										return e + d ;
+									}
+								}
 								]
 					});
 };
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 };
-//function add() {
-//	$.ajax({
-//    			url : "",
-//    			type : "post",
-//    			data : {},
-//    			success : function(r) {
-//    				window.location.href="/supplieradd"
-//    			}
-//    		});
-//
-//}
-//function remove(id) {
-//	layer.confirm('确定要删除选中的记录？', {
-//		btn : [ '确定', '取消' ]
-//	}, function() {
-//		$.ajax({
-//			url : "/sys/user/remove",
-//			type : "post",
-//			data : {
-//				'id' : id
-//			},
-//			success : function(r) {
-//				if (r.code == 0) {
-//					layer.msg(r.msg);
-//					reLoad();
-//				} else {
-//					layer.msg(r.msg);
-//				}
-//			}
-//		});
-//	})
-//}
+function add(){
+// iframe层
+	layer.open({
+		type : 2,
+		title : '增加用户',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content :  '/supaddhtml' // iframe的url
+	});
+}
+function remove(id) {
+	layer.confirm('确定要删除选中的记录？', {
+		btn : [ '确定', '取消' ]
+	}, function() {
+		$.ajax({
+			url : "/remove",
+			type : "post",
+			data : {
+				'id' : id
+			},
+			success : function(r) {
+				if (r.code == 0) {
+					layer.msg(r.msg);
+					reLoad();
+				} else {
+					layer.msg(r.msg);
+				}
+			}
+		});
+	})
+}
 //function edit(id) {
 //	layer.open({
 //		type : 2,

@@ -8,6 +8,12 @@ import java.util.Map;
 
 public interface SupplierService {
        List<SupplierDo> List(Map<String, Object> map);
+
        int count(Map<String, Object> map);
-      List<SupplierDo> AllList(int id);
+
+       List<SupplierDo> AllList(int id);
+
+       int supadd(SupplierDo supplierDo);
+
+       int remove(Long id);
 }
