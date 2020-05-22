@@ -29,7 +29,7 @@ public class AchieveController {
 
     @ResponseBody
     @RequestMapping("/count")
-    public List<Achievements> count(Model model, SupplierDo supplierDo) {
+    public List<Achievements> count(Model model) {
         List<Achievements> list = achieveService.list();
         Achievements ac = list.get(0);
         model.addAttribute("achieve", list);
@@ -45,22 +45,51 @@ public class AchieveController {
         return list;
     }
 
-    @RequestMapping("/add")
-    String add() {
+    @RequestMapping("/add1")
+    String add1() {
 //        List<Achievements> list=achieveService.list();
 //        Achievements ac=list.get(0);
 //        model.addAttribute("ac",ac);
-        return "srm/achieve/add";
-
+        return "srm/achieve/add1";
     }
+
+    @RequestMapping("/add2")
+    String add2() {
+//        List<Achievements> list=achieveService.list();
+//        Achievements ac=list.get(0);
+//        model.addAttribute("ac",ac);
+        return "srm/achieve/add2";
+    }
+
+    @RequestMapping("/add3")
+    String add3() {
+//        List<Achievements> list=achieveService.list();
+//        Achievements ac=list.get(0);
+//        model.addAttribute("ac",ac);
+        return "srm/achieve/add3";
+    }
+
+    @RequestMapping("/add4")
+    String add4() {
+//        List<Achievements> list=achieveService.list();
+//        Achievements ac=list.get(0);
+//        model.addAttribute("ac",ac);
+        return "srm/achieve/add4";
+    }
+
+    @RequestMapping("/add5")
+    String add5() {
+//        List<Achievements> list=achieveService.list();
+//        Achievements ac=list.get(0);
+//        model.addAttribute("ac",ac);
+        return "srm/achieve/add5";
+    }
+
+
     @ResponseBody
     @RequestMapping("/save")
     public void save(AchievementsDetail ad) {
         System.out.println(ad);
        achieveService.save(ad);
-
-
-
-
     }
 }

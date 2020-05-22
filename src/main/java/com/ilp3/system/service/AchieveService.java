@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface AchieveService {
     Achievements getAchieve(int id);
+
     List<Achievements> list();
 
     public void UpdateTotal(Achievements achievements);

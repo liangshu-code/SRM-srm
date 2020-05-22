@@ -6,8 +6,6 @@ import com.ilp3.system.entity.AchievementsDetail;
 import com.ilp3.system.service.AchieveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

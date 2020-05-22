@@ -94,16 +94,57 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 };
 function add1() {
-alert("1111111111111111")
 	layer.open({
 		type : 2,
 		title : '增加',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/add'
+		content : prefix + '/add1'
 	});
 }
 
+function add2() {
+	layer.open({
+		type : 2,
+		title : '增加',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefix + '/add2'
+	});
+}
 
+function add3() {
+	layer.open({
+		type : 2,
+		title : '增加',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefix + '/add3'
+	});
+}
+
+function add4() {
+	layer.open({
+		type : 2,
+		title : '增加',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefix + '/add4'
+	});
+}
+
+function add5() {
+	layer.open({
+		type : 2,
+		title : '增加',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefix + '/add5'
+	});
+}
 
