@@ -21,11 +21,13 @@ public interface AchieveMapper {
     @Select("SELECT * from achievements")
     List<Achievements> list();
 
-    @Insert("insert srm_menu(parent_id,name,url,perms,type) values(#{parentId},#{name},#{url},#{perms},#{type})")
+    @Update("UPDATE achievement_detail SET  qualified_batches=#{qualifiedBatches}, total_feed_batches=#{totalFeedBatches},  material_return=#{materialReturn},delivery_on_time=#{deliveryOnTime},submit_info=#{submitInfo} ,order_reply_info=#{orderReplyInfo},price_position=#{pricePosition},knot_score=#{knotScore},attitude=#{attitude},ex_reply=#{exReply},ex_done=#{exDone},refuse_reply=#{refuseReply} where supplier_id=5")
     int save(AchievementsDetail ad);
 
     @Update("UPDATE srm_menu SET  name=#{name}, url=#{url},  icon=#{icon},type=#{type},perms=#{perms} WHERE menu_id=#{menuId}")
     int update(MenuDO menu);
     @Update("UPDATE achievements SET  totalcount=#{totalcount} WHERE supplier_id=#{supplierId}")
     void UpdateTotal(Achievements achievements);
+    @Update("UPDATE achievements SET  quality=#{quality}, deliver=#{deliver},complaint=#{complaint},service=#{service},totalcount=#{totalcount},payment_method=#{paymentMethod} WHERE supplier_id=5")
+    void insertac(Achievements achievements);
 }

@@ -1,4 +1,5 @@
 package com.ilp3.system.controller;
+import com.ilp3.common.utils.R;
 import com.ilp3.system.entity.Achievements;
 import com.ilp3.system.entity.AchievementsDetail;
 import com.ilp3.system.entity.SupplierDo;
@@ -55,12 +56,30 @@ public class AchieveController {
     }
     @ResponseBody
     @RequestMapping("/save")
-    public void save(AchievementsDetail ad) {
+    R save(AchievementsDetail ad) {
         System.out.println(ad);
-       achieveService.save(ad);
-
-
-
+        Achievements achievements=new Achievements();
+        int q1=ad.getQualifiedBatches();
+        int q2=ad.getTotalFeedBatches();
+        int q3=ad.getMaterialReturn();
+        int quality= (int) (((float)(q1/q2*30))+(10-(2*q3)));
+        int deliver=(int) (((float)(ad.getDeliveryOnTime()/ad.getTotalFeedBatches()*10)))+(ad.getSubmitInfo())+(5-ad.getOrderReplyInfo());
+        int paymentMethod=(ad.getAttitude()+ad.getKnotScore()+ad.getAttitude());
+        int complaint=(5-ad.getExReply())+(ad.getExDone());
+        int service=ad.getRefuseReply();
+        int total = quality + deliver + complaint + paymentMethod + service;
+         achievements.setQuality(quality);
+         achievements.setDeliver(deliver);
+         achievements.setComplaint(complaint);
+         achievements.setPaymentMethod(paymentMethod);
+         achievements.setService(service);
+         achievements.setTotalcount(total);
+         achieveService.insertac(achievements);
+        if (achieveService.save(ad) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
 
     }
-}
+
