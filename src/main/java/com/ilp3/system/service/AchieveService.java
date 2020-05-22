@@ -13,5 +13,7 @@ public interface AchieveService {
 
     public void UpdateTotal(Achievements achievements);
 
-    void save(AchievementsDetail ad);
+    public int save(AchievementsDetail ad);
+
+    public void insertac(Achievements achievements);
 }

@@ -11,7 +11,7 @@ function submit01() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : prefix + "/save",
+		url : prefix +"/save",
 		data : $('#signupForm').serialize(),
 		async : false,
 		error : function(request) {

@@ -26,9 +26,14 @@ public Achievements getAchieve(int id){
     }
 
     @Override
-    public void save(AchievementsDetail ad) {
-        achieveMapper.save(ad);
+    public int save(AchievementsDetail ad) {
+        return achieveMapper.save(ad);
 
 
+    }
+
+    @Override
+    public void insertac(Achievements achievements) {
+        achieveMapper.insertac(achievements);
     }
 }

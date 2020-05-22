@@ -9,13 +9,12 @@
 				<div class="ibox float-e-margins">
 					<div class="ibox-content">
 						<form class="form-horizontal m-t" id="signupForm">
-							<input id="achieveId" name="achieveId" type="hidden"
-								th:value="${achieveId}">
+
 
 							<div class="form-group">
 								<label class="col-sm-3 control-label">检验合格批数：</label>
 								<div class="col-sm-8">
-									<input id="qualified_batches" name="qualified_batches" class="form-control" type="text" placeholder="权重%30" onmouseover="document.getElementById('d1').style.display='block'"
+									<input id="qualifiedBatches" name="qualifiedBatches" class="form-control" type="text" placeholder="权重%30" onmouseover="document.getElementById('d1').style.display='block'"
 										   onmouseout="document.getElementById('d1').style.display='none'">
 									<div id="d1">
 										批次合格率=检验合格批数/总进料批数&nbsp&nbsp&nbsp&nbsp
@@ -32,6 +31,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">品质问题退货次数</label>
 								<div class="col-sm-8">
+
 									<input id="perms" name="perms" class="form-control" type="text" placeholder="权重%10" onmouseover="document.getElementById('d2').style.display='block'"
 										   onmouseout="document.getElementById('d2').style.display='none'">
 									<div id="d2">
@@ -52,7 +52,7 @@
 		</div>
 	</div>
 	<div th:include="include::footer"></div>
-	<script src="/js/appjs/srm/menu/add.js"></script>
+	<script src="/js/appjs/srm/achieve/add.js"></script>
 </body>
 
 </html>
