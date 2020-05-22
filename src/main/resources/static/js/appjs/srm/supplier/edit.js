@@ -20,7 +20,6 @@ $.validator.setDefaults({
 //	return adIds;
 //}
 function update() {
-    alert("23123")
 	$.ajax({
 		cache : true,
 		type : "POST",
@@ -50,14 +49,13 @@ function validateRule() {
 	$("#signupForm").validate({
 		rules : {
 			name_cn : {
-				required : true
+				required : true,
 			},
 			name_en : {
 				required : true,
 			},
 			abbreviation : {
 				required : true,
-				minlength : 6
 			},
 			code : {
 				required : true,
@@ -66,7 +64,7 @@ function validateRule() {
 				required : true,
 			},
 			property : {
-				minlength : 2
+
 			},
 			    mailing_address : {
         	},

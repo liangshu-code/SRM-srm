@@ -41,4 +41,14 @@ public class SupplierServiceImpl implements SupplierService {
         return supplierMapper.remove(id);
     }
 
+    @Override
+    public SupplierDo get(Long id) {
+        return supplierMapper.get(id);
+    }
+
+    @Override
+    public int update(SupplierDo supplierDo) {
+        return supplierMapper.update(supplierDo);
+    }
+
 }

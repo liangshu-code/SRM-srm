@@ -20,7 +20,7 @@ $.validator.setDefaults({
 //	return adIds;
 //}
 function save() {
-    alert("23123")
+
 	$.ajax({
 		cache : true,
 		type : "POST",
@@ -50,14 +50,13 @@ function validateRule() {
 	$("#signupForm").validate({
 		rules : {
 			name_cn : {
-				required : true
+				required : true,
 			},
 			name_en : {
 				required : true,
 			},
 			abbreviation : {
 				required : true,
-				minlength : 6
 			},
 			code : {
 				required : true,
@@ -66,40 +65,46 @@ function validateRule() {
 				required : true,
 			},
 			property : {
-				minlength : 2
+			    required : true,
+
 			},
-			    mailing_address : {
+		    mailing_address : {
+			    required : true,
         	},
         	property : {
+        	    required : true,
 
             },
         	mailing_address : {
+        	    required : true,
 
             },
         	post_code : {
-
+                required : true,
             },
         	company_website : {
-
+                 required : true,
             },
         	business_registration : {
-
+                  required : true,
             },
         	registered_capital : {
-
+               required : true,
             },
             dateEstablishment : {
-
+                 required : true,
                         },
             organization_code : {
-
+                 required : true,
                          },
             staff_size : {
-
+                   required : true,
                          },
             contact_id : {
+                    required : true,
                         },
             staus : {
+                required : true,
                       },
                       }
 

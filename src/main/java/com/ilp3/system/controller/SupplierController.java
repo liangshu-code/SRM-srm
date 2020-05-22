@@ -8,10 +8,7 @@ import com.ilp3.system.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -43,6 +40,12 @@ public class SupplierController {
     String add(Model model) {
         return "srm/supplier/add";
     }
+    @GetMapping("/supupdatehtml/{id}")
+    String edit(Model model, @PathVariable("id") Long id) {
+        SupplierDo supplierDo = supplierService.get(id);
+        model.addAttribute("supplier", supplierDo);
+        return "srm/supplier/edit";
+    }
     @ResponseBody
     @RequestMapping("/supadd")
     R test3(SupplierDo supplierDo){
@@ -50,6 +53,14 @@ public class SupplierController {
             return R.ok();
         }
      return R.error();
+    }
+    @PostMapping("/update")
+    @ResponseBody
+    R update(SupplierDo supplierDo) {
+        if (supplierService.update(supplierDo) > 0) {
+            return R.ok();
+        }
+        return R.error();
     }
     @ResponseBody
     @RequestMapping("/remove")

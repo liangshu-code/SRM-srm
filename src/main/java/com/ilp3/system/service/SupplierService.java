@@ -16,4 +16,8 @@ public interface SupplierService {
        int supadd(SupplierDo supplierDo);
 
        int remove(Long id);
+
+       SupplierDo get(Long id);
+
+       int update(SupplierDo supplierDo);
 }
