@@ -1,106 +1,109 @@
 var prefix = "/achieve"
 $(document).ready(function() {
-	load();
+//	load();
 });
-var load = function() {
+function load() {
 	$('#exampleTable')
-			.bootstrapTreeTable(
+			.bootstrapTable(
 					{
-						id : 'menuId',
-						parentColumn : 'parentId',
-						type : "GET", // 请求数据的ajax类型
-						url : prefix + '/count', // 请求数据的ajax的url
-						ajaxParams : {}, // 请求数据的ajax的data属性
-						expandColumn : '1',// 在哪一列上面显示展开按钮
-						striped : true, // 是否各行渐变色
-						bordered : true, // 是否显示边框
-						expandAll : false, // 是否全部展开
-					//	toolbar : '#exampleToolbar',
-						columns : [
-								{
-									title : '品质',
-									field : 'quality',
-									visible : false,
-									align : 'center',
-									valign : 'middle',
-									width : '50px'
-								},
-								{
-									title : '交货期',
-									field : 'deliver'
-								},
+						method : 'get', // 服务器数据的请求方式 get or post
+						url : prefix + '/count', // 服务器数据的加载地址
+						// showRefresh : true,
+						// showToggle : true,
+						// showColumns : true,
+						iconSize : 'outline',
+						toolbar : '#exampleToolbar',
+						striped : true, // 设置为true会有隔行变色效果
+						dataType : "json", // 服务器返回的数据类型
+//						pagination : true, // 设置为true会在底部显示分页条
+						// queryParamsType : "limit",
+						// //设置为limit则会发送符合RESTFull格式的参数
+						singleSelect : false, // 设置为true将禁止多选
+						// contentType : "application/x-www-form-urlencoded",
+						// //发送到服务器的数据编码类型
+//						pageSize : 10, // 如果设置了分页，每页数据条数
+//						pageNumber : 1, // 如果设置了分布，首页页码
+//						// search : true, // 是否显示搜索框
+//						showColumns : false, // 是否显示内容下拉框（选择显示的列）
+//						sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者
+//						cache:false,							// "server"
+//						queryParams : function(params) {
+//							return {
+//								// 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
+//								limit : params.limit,
+//								offset : params.offset,
+//								name : $('#searchName').val()
+//							};
+//						},
+						// //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
+						// queryParamsType = 'limit' ,返回参数必须包含
+						// limit, offset, search, sort, order 否则, 需要包含:
+						// pageSize, pageNumber, searchText, sortName,
+						// sortOrder.
+						// 返回false将会终止请求
+//
+//						columns : [
+//                        								{
+//                        									checkbox : true
+//                        								},
+//                        								{
+//                                                            field : 'supplierId', // 列字段名
+//                                                            title : '供应商id' // 列标题
+//                                                        },{
+//
+//                                                            field : 'quality', // 列字段名
+//                                                            title : '质量评估' // 列标题
+//                                                        },
+//                        								{
+//                        									field : 'deliver', // 列字段名
+//                        									title : '交付评估' // 列标题
+//                        								},
+//                        								{
+//                        									field : 'paymentMethod',
+//                        									title : '价格付款方式评估'
+//                        								},
+//                        								{
+//                        									field : 'complaint',
+//                        									title : '投诉处理评估'
+//                        								},
+//                        								{
+//                        									field : 'service',
+//                        									title : '服务评估'
+//                        								}, {
+//                                                            field : 'totalcount',
+//                                                            title : '总计'
+//                                                        },{
+//                                                            title : '操作',
+//                                                            field : 'id',
+//                                                         	align : 'center',
+                                                            formatter : function(value, row, index) {
 
-								{
-									title : '价格及付款方式',
-									field : 'paymentMethod',
-									align : 'center',
-									valign : 'middle',
 
-								},
-								{
-									title : '投诉处理',
-									field : 'complaint',
-									align : 'center',
-									valign : 'middle',
+                                                         	var p = '<a class="btn btn-primary btn-sm '+s_add_h+'" href="#" mce_href="#" title="添加下级" onclick="add(\''
+                                                         	+ row.supplierId
+                                                         	+ '\')"><i class="fa fa-plus"></i></a> ';
 
-								},
-								{
-									title : '服务',
-									field : 'service'
-								},
-								{
-									title : '操作',
-									field : 'id',
-									align : 'center',
+                                                           return p;
+                                                         									}
+                                                         								})
 
-								} ]
-					});
-}
+
+					};
+
 function reLoad() {
-	load();
-}
-function add(pId) {
+	$('#exampleTable').bootstrapTable('refresh');
+};
+function add1() {
+alert("1111111111111111")
 	layer.open({
 		type : 2,
-		title : '增加菜单',
+		title : '增加',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/add/' + pId // iframe的url
+		content : prefix + '/add'
 	});
 }
-function remove(id) {
-	layer.confirm('确定要删除选中的记录？', {
-		btn : [ '确定', '取消' ]
-	}, function() {
-		$.ajax({
-			url : prefix + "/remove",
-			type : "post",
-			data : {
-				'id' : id
-			},
-			success : function(data) {
-				if (data.code == 0) {
-					layer.msg("删除成功");
-					reLoad();
-				} else {
-					layer.msg(data.msg);
-				}
-			}
-		});
-	})
-}
-function edit(id) {
-	layer.open({
-		type : 2,
-		title : '菜单修改',
-		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
-		area : [ '800px', '520px' ],
-		content : prefix + '/edit/' + id // iframe的url
-	});
-}
-function batchRemove() {
-	// var rows = $('#exampleTable').bootstrapTable('getSelections');
 
-}
+
+

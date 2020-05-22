@@ -9,16 +9,57 @@
         <div class="ibox">
             <div class="ibox-body">
                 <div id="exampleToolbar" role="group" class="t-bar">
-                    <button shiro:hasPermission="srm:menu:add" type="button"
-                            class="btn btn-primary" title="在根节点下添加菜单" onclick="add('0')">
-                        <i class="fa fa-plus" aria-hidden="true"></i>添加
-                    </button>
-                    <button shiro:hasPermission="srm:menu:batchRemove" type="button"
-                            class="btn btn-danger" onclick="batchRemove()">
-                        <i class="fa fa-trash" aria-hidden="true"></i>删除
-                    </button>
                 </div>
-                <table id="exampleTable" data-mobile-responsive="true">
+<!--                <table id="exampleTable" data-mobile-responsive="true">-->
+<!--                </table>-->
+                <table class="table"id="exampleTable">
+                    <caption>绩效评价</caption>
+                    <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>权重</th>
+                        <th>得分</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>品质绩效评价</td>
+                        <td>40%</td>
+                        <td th:text="${ac.quality}"></td>
+                        <td><button class="btn btn-primary" id="addid"  type="button" onclick="add1()">添加</button></td>
+                    </tr>
+                    <tr>
+                        <td>交货期绩效评价</td>
+                        <td>20%</td>
+                        <td th:text="${ac.deliver}"></td>
+                        <td><button class="btn btn-primary" id="addid"  type="button" onclick="add1()">添加</button></td>
+                    </tr>
+                    <tr>
+                        <td>价格及付款方式绩效评价</td>
+                        <td>20%</td>
+                        <td th:text="${ac.paymentMethod}"></td>
+                        <td><button class="btn btn-primary" id="addid"  type="button" onclick="add1()">添加</button></td>
+                    </tr>
+                    <tr>
+                        <td>投诉处理绩效评价</td>
+                        <td>10%</td>
+                        <td th:text="${ac.complaint}"></td>
+                        <td><button class="btn btn-primary" id="addid"  type="button" onclick="add1()">添加</button></td>
+                    </tr>
+                    <tr>
+                        <td>服务绩效评价</td>
+                        <td>10%</td>
+                        <td th:text="${ac.service}"></td>
+                        <td><button class="btn btn-primary" id="addid"  type="button" onclick="add1()">添加</button></td>
+                    </tr>
+                    <tr>
+                        <td>绩效总评</td>
+                        <td></td>
+                        <td th:text="${ac.totalcount}"></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -31,17 +72,17 @@
 				var s_remove_h = 'hidden';
 			</script>
     </div>
-    <div shiro:hasPermission="srm:user:add">
+    <div>
         <script type="text/javascript">
 				s_add_h = '';
 			</script>
     </div>
-    <div shiro:hasPermission="srm:user:edit">
+    <div>
         <script type="text/javascript">
 				s_edit_h = '';
 			</script>
     </div>
-    <div shiro:hasPermission="srm:user:remove">
+    <div>
         <script type="text/javascript">
 				var s_remove_h = '';
 			</script>
