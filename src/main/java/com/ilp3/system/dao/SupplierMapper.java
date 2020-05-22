@@ -24,7 +24,7 @@ public interface SupplierMapper {
     int count(Map<String, Object> map);
     @Insert("INSERT INTO supplier_info(name_cn,name_en,abbreviation,code,nature,property,mailing_address,post_code,company_website,business_registration,registered_capital,date_establishment,organization_code,staff_size,contact_id,staus)VALUES(#{nameCn},#{nameEn},#{abbreviation},#{code},#{nature},#{property},#{mailingAddress},#{postCode},#{companyWebsite},#{businessRegistration},#{registeredCapital},#{dateEstablishment},#{organizationCode},#{staffSize},#{contactId},#{staus})")
     int add(SupplierDo supplierDo);
-    @Delete("delete from supplier_info where supplier_id =#{supplierId}")
+    @Update("update  supplier_info set staus = 0  where supplier_id =#{id}")
     int remove(Long id);
     @Select("select * from supplier_info where supplier_id=#{id}")
     SupplierDo get(Long id);
