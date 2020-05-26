@@ -1,4 +1,5 @@
 var prefix = "/achieve"
+
 $(document).ready(function() {
            	load();
 
@@ -8,7 +9,8 @@ function load() {
 	var query = window.location.search.substring(1);
 	var supplierId=query.split("=")[1]
 
-    $('#exampleTable')
+
+   $('#exampleTable')
 .bootstrapTable(
 
 					{
