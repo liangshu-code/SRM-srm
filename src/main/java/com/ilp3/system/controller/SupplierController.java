@@ -4,12 +4,17 @@ import com.ilp3.common.utils.PageUtils;
 import com.ilp3.common.utils.Query;
 import com.ilp3.common.utils.R;
 import com.ilp3.system.entity.SupplierDo;
+import com.ilp3.system.entity.TResult;
+import com.ilp3.system.entity.TianYanDo;
 import com.ilp3.system.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,9 +36,14 @@ public class SupplierController {
         return  pageUtil;
     }
     @ResponseBody
-    @RequestMapping("/supplierAllList")
-    List<SupplierDo> test2(int  id){
-        List<SupplierDo> list = supplierService.AllList(id);
+    @RequestMapping("/supTy")
+    TResult test2(int  id) throws ParseException {
+        TResult list = supplierService.tyList(id);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
+        String EstiblishTime1 =format.format(list.getEstiblishTime());
+        Date EstiblishTime =format.parse(EstiblishTime1);
+        list.setEstiblishTime(EstiblishTime);
+        System.out.println(list);
         return  list;
     }
     @GetMapping("/supaddhtml")

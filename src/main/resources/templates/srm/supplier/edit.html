@@ -23,7 +23,8 @@
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">公司名称（英文）：</label>
                             <div class="col-sm-3">
-                                <input id="name_en" name="nameEn" class="form-control"
+                                <input id="name_en" name="nameEn" class="form-control" oninput="value=value.replace(/[^a-zA-Z]/g,'')"
+                                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^a-zA-Z]/g,''))"
                                        type="text" 	th:value="${supplier.nameEn}">
                             </div>
                         </div>
@@ -37,22 +38,30 @@
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">供应商编码：</label>
                             <div class="col-sm-3">
-                                <input id="code" name="code" class="form-control"
+                                <input id="code" name="code" class="form-control" oninput = "value=value.replace(/[^\d]/g,'')"
                                        type="text" 	th:value="${supplier.code}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">供应商性质：</label>
                             <div class="col-sm-3">
-                                <input id="nature" name="nature" class="form-control"
-                                       type="text" 	th:value="${supplier.nature}">
+                                <select id="nature" name="nature" class="form-control"
+                                       type="text" >
+                                    <option value="{{supplier.nature}}">[[${supplier.nature}]]</option>
+                                    <option value="生产商">生产商</option>
+                                    <option value="进出口">进出口</option>
+                                </select>
                             </div>
 <!--                        </div>-->
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">企业性质：</label>
                             <div class="col-sm-3">
-                                <input id="property" name="property" class="form-control"
-                                       type="text" 	th:value="${supplier.property}">
+                                <select id="property" name="property" class="form-control"
+                                        type="text" >
+                                    <option value="{{supplier.property}}">[[${supplier.property}]]</option>
+                                    <option value="私营">私营</option>
+                                    <option value="国企">国企</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -65,7 +74,7 @@
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">邮政编码：</label>
                             <div class="col-sm-3">
-                                <input id="post_code" name="postCode" class="form-control"
+                                <input id="post_code" name="postCode" class="form-control" oninput = "value=value.replace(/[^\d]/g,'')"
                                        type="text" 	th:value="${supplier.postCode}">
                             </div>
                         </div>
@@ -73,7 +82,7 @@
                             <label class="col-sm-3 control-label">公司网址：</label>
                             <div class="col-sm-3">
                                 <input id="company_website" name="companyWebsite" class="form-control"
-                                       type="text" 	th:value="${supplier.companyWebsite}">
+                                       type="url" 	th:value="${supplier.companyWebsite}">
                             </div>
 <!--                        </div>-->
 <!--                        <div class="form-group">-->
@@ -94,13 +103,13 @@
                             <label class="col-sm-3 control-label">成立时间：</label>
                             <div class="col-sm-3">
                                 <input id="dateEstablishment" name="dateEstablishment" class="form-control"
-                                       type="text" 	th:value="${supplier.dateEstablishment}">
+                                       type="date" 	th:value="${supplier.dateEstablishment}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">组织机构代码：</label>
                             <div class="col-sm-3">
-                                <input id="organization_code" name="organizationCode" class="form-control"
+                                <input id="organization_code" name="organizationCode" class="form-control" oninput="value=value.replace(/[^\d|chun]/g,'')"
                                        type="text" 	th:value="${supplier.organizationCode}">
                             </div>
 <!--                        </div>-->

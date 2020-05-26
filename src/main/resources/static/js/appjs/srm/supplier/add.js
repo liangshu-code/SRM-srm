@@ -1,7 +1,8 @@
-$().ready(function() {
-	validateRule();
-	 $("#signupForm").validate();
-});
+//$().ready(function() {
+////     riqi();
+//	validateRule();
+//	 $("#signupForm").validate();
+//});
 
 $.validator.setDefaults({
 	submitHandler : function() {
@@ -102,10 +103,8 @@ function validateRule() {
                          },
             contact_id : {
                     required : true,
-                        },
-            staus : {
-                required : true,
-                      },
+                        }
+
                       }
 
 //		messages : {
@@ -131,3 +130,9 @@ function validateRule() {
 //		}
 	})
 }
+function riqi() {
+    $('#dateEstablishment').datetimepicker({
+        format: 'YYYY-MM-DD',
+//        locale: moment.locale('zh-cn')
+    });
+    };

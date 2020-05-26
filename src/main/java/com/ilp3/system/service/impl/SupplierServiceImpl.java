@@ -2,6 +2,8 @@ package com.ilp3.system.service.impl;
 
 import com.ilp3.system.dao.SupplierMapper;
 import com.ilp3.system.entity.SupplierDo;
+import com.ilp3.system.entity.TResult;
+
 import com.ilp3.system.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,10 +27,6 @@ public class SupplierServiceImpl implements SupplierService {
         return supplierMapper.count(map);
     }
 
-    @Override
-    public List<SupplierDo> AllList(int id) {
-        return supplierMapper.Alllist(id);
-    }
 
     @Override
     public int supadd(SupplierDo supplierDo) {
@@ -49,6 +47,11 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public int update(SupplierDo supplierDo) {
         return supplierMapper.update(supplierDo);
+    }
+
+    @Override
+    public TResult tyList(int id) {
+        return  supplierMapper.tyList(id);
     }
 
 }

@@ -21,6 +21,9 @@ function load() {
 						singleSelect : false, // 设置为true将禁止多选
 						// contentType : "application/x-www-form-urlencoded",
 						// //发送到服务器的数据编码类型
+//						sortable: true,//排序方式
+//                      sortOrder: "desc",//排序
+//                      sortName: 'supplierId',//排序字段
 						pageSize : 10, // 如果设置了分页，每页数据条数
 						pageNumber : 1, // 如果设置了分布，首页页码
 						// search : true, // 是否显示搜索框
@@ -32,7 +35,9 @@ function load() {
 								// 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 								limit : params.limit,
 								offset : params.offset,
-								name : $('#searchName').val()
+								name : $('#searchName').val(),
+								sort : params.sort,
+								sortOrder : params.order
 							};
 						},
 						// //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
@@ -47,11 +52,13 @@ function load() {
 								},
 								{
                                 field : 'supplierId', // 列字段名
-                                title : '序号' // 列标题
+                                title : '序号' ,// 列标题
+                                 sortable: true
                                 },
 								{
 									field : 'nameCn', // 列字段名
-									title : '公司名称' // 列标题
+									title : '公司名称' ,// 列标题
+
 								},
 								{
 									field : 'nameEn',

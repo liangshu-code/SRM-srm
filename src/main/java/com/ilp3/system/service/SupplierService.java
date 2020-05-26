@@ -1,6 +1,8 @@
 package com.ilp3.system.service;
 
 import com.ilp3.system.entity.SupplierDo;
+import com.ilp3.system.entity.TResult;
+
 
 
 import java.util.List;
@@ -11,8 +13,6 @@ public interface SupplierService {
 
        int count(Map<String, Object> map);
 
-       List<SupplierDo> AllList(int id);
-
        int supadd(SupplierDo supplierDo);
 
        int remove(Long id);
@@ -20,4 +20,6 @@ public interface SupplierService {
        SupplierDo get(Long id);
 
        int update(SupplierDo supplierDo);
+
+       TResult tyList(int id);
 }

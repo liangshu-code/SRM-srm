@@ -17,8 +17,8 @@
                             </div>
                             <label class="col-sm-3 control-label">公司名称（英文）：</label>
                             <div class="col-sm-3">
-                                <input id="name_en" name="nameEn" class="form-control"
-                                       type="text">
+                                <input id="name_en" name="nameEn" class="form-control"  oninput="value=value.replace(/[^a-zA-Z]/g,'')"
+                                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^a-zA-Z]/g,''))" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -29,22 +29,28 @@
                             </div>
                             <label class="col-sm-3 control-label">供应商编码：</label>
                             <div class="col-sm-3">
-                                <input id="code" name="code" class="form-control"
+                                <input id="code" name="code" class="form-control" oninput = "value=value.replace(/[^\d]/g,'')"
                                        type="text">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">供应商性质：</label>
                             <div class="col-sm-3">
-                                <input id="nature" name="nature" class="form-control"
+                                <select id="nature" name="nature" class="form-control"
                                        type="text">
+                                    <option value="生产商">生产商</option>
+                                    <option value="进出口">进出口</option>
+                                </select>
                             </div>
 <!--                        </div>-->
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">企业性质：</label>
                             <div class="col-sm-3">
-                                <input id="property" name="property" class="form-control"
+                                <select id="property" name="property" class="form-control"
                                        type="text">
+                                    <option value="私营">私营</option>
+                                    <option value="国企">国企</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -57,7 +63,7 @@
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">邮政编码：</label>
                             <div class="col-sm-3">
-                                <input id="post_code" name="postCode" class="form-control"
+                                <input id="post_code" name="postCode" class="form-control" oninput = "value=value.replace(/[^\d]/g,'')"
                                        type="text">
                             </div>
                         </div>
@@ -65,41 +71,45 @@
                             <label class="col-sm-3 control-label">公司网址：</label>
                             <div class="col-sm-3">
                                 <input id="company_website" name="companyWebsite" class="form-control"
-                                       type="text">
+                                       type="url">
                             </div>
+                            <button id="TianYan"  type="button" value="添加" onclick="Ty()"></button>
 <!--                        </div>-->
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">工商注册地：</label>
                             <div class="col-sm-3">
-                                <input id="business_registration" name="businessRegistration" class="form-control"
+                                <input id="businessRegistration" name="businessRegistration" class="form-control"
                                        type="text">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">注册资本：</label>
                             <div class="col-sm-3">
-                                <input id="registered_capital" name="registeredCapital" class="form-control"
+                                <input id="registeredCapital" name="registeredCapital" class="form-control"
                                        type="text">
                             </div>
 <!--                        </div>-->
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">成立日期：</label>
-                            <div class="col-sm-3">
-                                <input id="dateEstablishment" name="dateEstablishment" class="form-control"
-                                       type="text">
+                            <div class="col-sm-3" >
+                                <input id="dateEstablishment"  name="dateEstablishment" class="form-control"
+                                       type="text" >
+<!--                                <span class="input-group-addon">-->
+<!--                                    <span class="glyphicon glyphicon-calendar"></span>-->
+<!--                                </span>-->
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">组织机构代码：</label>
                             <div class="col-sm-3">
-                                <input id="organization_code" name="organizationCode" class="form-control"
+                                <input id="organizationCode" name="organizationCode" class="form-control" oninput="value=value.replace(/[^\d|chun]/g,'')"
                                        type="text">
                             </div>
 <!--                        </div>-->
 <!--                        <div class="form-group">-->
                             <label class="col-sm-3 control-label">人员规模：</label>
                             <div class="col-sm-3">
-                                <input id="staff_size" name="staffSize" class="form-control"
+                                <input id="staffSize" name="staffSize" class="form-control"
                                        type="text">
                             </div>
                         </div>
@@ -112,14 +122,14 @@
 <!--                        </div>-->
 
 <!--                        <div class="form-group">-->
-                            <label class="col-sm-3 control-label">状态:</label>
-                            <div class="col-sm-3">
-                                <label class="radio-inline"> <input type="radio"
-                                                                    name="staus" value="1" /> 正常
-                                </label> <label class="radio-inline"> <input type="radio"
-                                                                             name="staus" value="0" /> 禁用
-                            </label>
-                            </div>
+<!--                            <label class="col-sm-3 control-label">状态:</label>-->
+<!--                            <div class="col-sm-3">-->
+<!--                                <label class="radio-inline"> <input type="radio"-->
+<!--                                                                    name="staus" value="1" /> 正常-->
+<!--                                </label> <label class="radio-inline"> <input type="radio"-->
+<!--                                                                             name="staus" value="0" /> 禁用-->
+<!--                            </label>-->
+<!--                            </div>-->
                         </div>
 
                         <div class="form-group">
@@ -135,6 +145,7 @@
 
 </div>
 <div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/srm/supplier/Ty.js">
 <script type="text/javascript" src="/js/appjs/srm/supplier/add.js">
 </script>
 </body>
