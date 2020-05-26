@@ -1,13 +1,19 @@
 var prefix = "/achieve"
 $(document).ready(function() {
-//	load();
+           	load();
+
 });
 function load() {
-	$('#exampleTable')
-			.bootstrapTable(
+
+	var query = window.location.search.substring(1);
+	var supplierId=query.split("=")[1]
+
+    $('#exampleTable')
+.bootstrapTable(
+
 					{
 						method : 'get', // 服务器数据的请求方式 get or post
-						url : prefix + '/count', // 服务器数据的加载地址
+						url : prefix + '/count/'+supplierId, // 服务器数据的加载地址
 						// showRefresh : true,
 						// showToggle : true,
 						// showColumns : true,
@@ -42,65 +48,60 @@ function load() {
 						// sortOrder.
 						// 返回false将会终止请求
 //
-//						columns : [
-//                        								{
-//                        									checkbox : true
-//                        								},
-//                        								{
-//                                                            field : 'supplierId', // 列字段名
-//                                                            title : '供应商id' // 列标题
-//                                                        },{
-//
-//                                                            field : 'quality', // 列字段名
-//                                                            title : '质量评估' // 列标题
-//                                                        },
-//                        								{
-//                        									field : 'deliver', // 列字段名
-//                        									title : '交付评估' // 列标题
-//                        								},
-//                        								{
-//                        									field : 'paymentMethod',
-//                        									title : '价格付款方式评估'
-//                        								},
-//                        								{
-//                        									field : 'complaint',
-//                        									title : '投诉处理评估'
-//                        								},
-//                        								{
-//                        									field : 'service',
-//                        									title : '服务评估'
-//                        								}, {
-//                                                            field : 'totalcount',
-//                                                            title : '总计'
-//                                                        },{
-//                                                            title : '操作',
-//                                                            field : 'id',
-//                                                         	align : 'center',
+						columns : [
+                        								{
+                        									checkbox : true
+                        								},
+                        								{
+                                                            field : 'achievementsName', // 列字段名
+                                                            title : '供应商绩效名称' // 列标题
+                                                        },{
+                                                                  field : 'achievementsId', // 列字段名
+                                                                   title : '供应商名称' // 列标题
+                                                        },{
+
+                                                            field : 'weight', // 列字段名
+                                                            title : '权重' // 列标题
+                                                        },
+                        								{
+                        									field : 'score', // 列字段名
+                        									title : '得分' // 列标题
+                        								},
+                        								{
+                        									field : 'totalcount',
+                        									title : '综合得分'
+                        								},
+                        								{
+                                                            title : '操作',
+                                                            field : 'achieveType',
+                                                         	align : 'center',
                                                             formatter : function(value, row, index) {
 
 
-                                                         	var p = '<a class="btn btn-primary btn-sm '+s_add_h+'" href="#" mce_href="#" title="添加下级" onclick="add(\''
-                                                         	+ row.supplierId
+                                                         	var p = '<a class="btn btn-primary btn-sm '+s_add_h+'" href="#" mce_href="#" title="添加下级" onclick="add1(\''
+
+                                                         	+row.achievementsId
                                                          	+ '\')"><i class="fa fa-plus"></i></a> ';
 
                                                            return p;
                                                          									}
-                                                         								})
+                                                         								}]
 
 
-					};
-
+					});
+}
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 };
-function add1() {
+function add1(achievementsId) {
+alert(achievementsId)
 	layer.open({
 		type : 2,
 		title : '增加',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/add1'
+		content : prefix + '/add1/'+achievementsId
 	});
 }
 
@@ -147,4 +148,3 @@ function add5() {
 		content : prefix + '/add5'
 	});
 }
-

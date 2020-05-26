@@ -1,15 +1,19 @@
 package com.ilp3.system.controller;
+import com.ilp3.common.utils.R;
 import com.ilp3.system.entity.Achievements;
 import com.ilp3.system.entity.AchievementsDetail;
+import com.ilp3.system.entity.MenuDO;
 import com.ilp3.system.entity.SupplierDo;
+import com.ilp3.system.service.AchieveDetailService;
 import com.ilp3.system.service.AchieveService;
+import com.ilp3.system.util.chievementinit;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.sound.midi.SoundbankResource;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,78 +22,73 @@ import java.util.List;
 public class AchieveController {
     @Autowired
     AchieveService achieveService;
+    @Autowired
+    AchieveDetailService achieveDetailService;
 
     @RequestMapping({"/list"})
-    String list(Model model) {
-        List<Achievements> list = achieveService.list();
-        Achievements ac = list.get(0);
-        model.addAttribute("ac", ac);
-        return "srm/achieve/list";
-    }
+    String list(@RequestParam(name = "supplierId") String supplierId, HttpSession session){
+        int supplierid = Integer.parseInt(supplierId);
+       int list=achieveService.count(supplierid);
+          if(list==0) {
+          chievementinit achievements = new chievementinit();
+          for (Achievements achievement : achievements.listAc()) {
+              achievement.setSupplierId(supplierid);
+              achieveService.insertinit(achievement);
+          }
 
+      }
+    return "srm/achieve/list";
+
+}
     @ResponseBody
-    @RequestMapping("/count")
-    public List<Achievements> count(Model model) {
-        List<Achievements> list = achieveService.list();
-        Achievements ac = list.get(0);
-        model.addAttribute("achieve", list);
-        int quality = ac.getQuality();
-        int deliver = ac.getDeliver();
-        int complaint = ac.getComplaint();
-        int paymentMethod = ac.getPaymentMethod();
-        int service = ac.getService();
-        int total = quality + deliver + complaint + paymentMethod + service;
-        ac.setTotalcount(total);
-        achieveService.UpdateTotal(ac);
-        System.out.println(ac);
-        return list;
-    }
+    @GetMapping("/count/{supplierId}")
+    public List<Achievements> count(@PathVariable("supplierId") String supplierId){
+        int i = Integer.parseInt(supplierId);
+        List<Achievements> list=achieveService.list(i);
+          return list;
+  }
+  @RequestMapping("/add1/{achievementsId}")
+    String addpage1(Model model,@PathVariable("achievementsId") String achievementsId){
 
-    @RequestMapping("/add1")
-    String add1() {
-//        List<Achievements> list=achieveService.list();
-//        Achievements ac=list.get(0);
-//        model.addAttribute("ac",ac);
+      int j = Integer.parseInt(achievementsId);
+      model.addAttribute("AID",j);
+
+
         return "srm/achieve/add1";
     }
-
-    @RequestMapping("/add2")
-    String add2() {
-//        List<Achievements> list=achieveService.list();
-//        Achievements ac=list.get(0);
-//        model.addAttribute("ac",ac);
-        return "srm/achieve/add2";
-    }
-
-    @RequestMapping("/add3")
-    String add3() {
-//        List<Achievements> list=achieveService.list();
-//        Achievements ac=list.get(0);
-//        model.addAttribute("ac",ac);
-        return "srm/achieve/add3";
-    }
-
-    @RequestMapping("/add4")
-    String add4() {
-//        List<Achievements> list=achieveService.list();
-//        Achievements ac=list.get(0);
-//        model.addAttribute("ac",ac);
-        return "srm/achieve/add4";
-    }
-
-    @RequestMapping("/add5")
-    String add5() {
-//        List<Achievements> list=achieveService.list();
-//        Achievements ac=list.get(0);
-//        model.addAttribute("ac",ac);
-        return "srm/achieve/add5";
-    }
-
-
     @ResponseBody
-    @RequestMapping("/save")
-    public void save(AchievementsDetail ad) {
-        System.out.println(ad);
-       achieveService.save(ad);
+    @PostMapping("/save")
+     R update( AchievementsDetail achievementsDetail,String achievementsId,double weight,double weight1) {
+        int j = Integer.parseInt(achievementsId);
+        int k=j+1;
+        int l=j+2;
+        double q1=achievementsDetail.getQualifiedBatches();
+        double q2=achievementsDetail.getTotalFeedBatches();
+        int q3=achievementsDetail.getMaterialReturn();
+List<Achievements> achievements= new ArrayList<>();
+       Achievements achievements1 =achieveService.selectweight(k);
+        Achievements achievements2 =achieveService.selectweight(l);
+       int score1 =(int)((q1/q2)*100);
+       int total1= (int) (score1*weight);
+       int total2=(10-2*q3);
+       int score2=(int)(total2/weight1);
+
+       achievements1.setScore(score1);
+       achievements1.setTotalcount(total1);
+       achievements1.setWeight(weight);
+       achievements1.setAchievementsId(k);
+        achievements2.setScore(score2);
+        achievements2.setTotalcount(total2);
+        achievements2.setWeight(weight1);
+        achievements2.setAchievementsId(l);
+        achieveService.insertinfo(achievements1);
+
+        if (achieveService.insertinfo(achievements2) > 0) {
+            return R.ok();
+        } else {
+            return R.error(1, "更新失败");
+        }
     }
+
+
 }

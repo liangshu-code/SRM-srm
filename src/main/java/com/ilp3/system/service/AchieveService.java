@@ -3,17 +3,22 @@ package com.ilp3.system.service;
 import com.ilp3.system.entity.Achievements;
 import com.ilp3.system.entity.AchievementsDetail;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface AchieveService {
-    Achievements getAchieve(int id);
+//    Achievements getAchieve(int id);
+//    List<Achievements> list();
+//
+//    public void UpdateTotal(Achievements achievements);
 
-    List<Achievements> list();
+    int insertinit(Achievements achievement);
 
-    public void UpdateTotal(Achievements achievements);
+    List<Achievements> list(int supplierid);
 
-    public int save(AchievementsDetail ad);
+    int count(int supplierId);
 
-    public void insertac(Achievements achievements);
+    int insertinfo(Achievements achievements);
+
+
+    Achievements selectweight(int aid);
 }
