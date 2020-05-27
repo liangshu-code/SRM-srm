@@ -4,11 +4,11 @@
 //	 $("#signupForm").validate();
 //});
 
-$.validator.setDefaults({
-	submitHandler : function() {
-		save();
-	}
-});
+//$.validator.setDefaults({
+//	submitHandler : function() {
+//		save();
+//	}
+//});
 //function getCheckedRoles() {
 //	var adIds = "";
 //	$("input:checkbox[name=role]:checked").each(function(i) {

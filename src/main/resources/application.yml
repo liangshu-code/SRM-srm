@@ -10,7 +10,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: com.ilp3.system.entity
+#  type-aliases-package: com.ilp3.system.entity
 
 #数据库配置
 spring:

@@ -62,6 +62,7 @@ public class AchieveController {
         int j = Integer.parseInt(achievementsId);
         int k=j+1;
         int l=j+2;
+        int a=j+16;
         double q1=achievementsDetail.getQualifiedBatches();
         double q2=achievementsDetail.getTotalFeedBatches();
         int q3=achievementsDetail.getMaterialReturn();
@@ -69,12 +70,15 @@ List<Achievements> achievements= new ArrayList<>();
        Achievements achievements1 =achieveService.selectweight(k);
         Achievements achievements2 =achieveService.selectweight(l);
         Achievements achievements3 =achieveService.selectweight(j);
+        Achievements achievements16 =achieveService.selectweight(a);
        int score1 =(int)((q1/q2)*100);
        int total1= (int) (score1*weight);
        int total2=(10-2*q3);
        int score2=(int)(total2/weight1);
        int total0=total1+total2;
        int score0= (int) (total0/(weight+weight1));
+       int total16=total0;
+
        double weight0=weight+weight1;
        achievements1.setScore(score1);
        achievements1.setTotalcount(total1);
@@ -88,8 +92,8 @@ List<Achievements> achievements= new ArrayList<>();
         achievements3.setWeight(weight0);
         achieveService.insertinfo(achievements1);
         achieveService.insertinfo(achievements2);
-
-        if (achieveService.insertinfo(achievements3) > 0) {
+        achieveService.insertinfo(achievements3);
+        if (achieveService.insertinfo(achievements16) > 0) {
             return R.ok();
         } else {
             return R.error(1, "更新失败");

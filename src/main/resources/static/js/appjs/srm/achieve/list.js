@@ -96,7 +96,6 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 };
 function add1(achievementsId) {
-alert(achievementsId)
 	layer.open({
 		type : 2,
 		title : '增加',
